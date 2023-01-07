@@ -1,0 +1,3 @@
+# pratica_python
+Esse repositório vai conter alguns projetos aleatórios em python...  
+Sinta-se à vontade para dar sugestões de otimização, ideias etc... ou até mesmo sugerir um projeto do zero para que eu possa praticar, contanto que seja simples (sou iniciante(__pelo menos por enquanto...__))
