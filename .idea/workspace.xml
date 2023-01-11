@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da0e0c16-777a-4663-8fbc-0ed2c7e76e07" name="Changes" comment="DIA1">
+    <list default="true" id="da0e0c16-777a-4663-8fbc-0ed2c7e76e07" name="Changes" comment="DIA2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/madlib/funcoes/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/madlib/funcoes/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/madlib/historia/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/madlib/historia/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/madlib/interacao.py" beforeDir="false" afterPath="$PROJECT_DIR$/madlib/interacao.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673273209185</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="DIA2">
+      <created>1673362422556</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1673362422556</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -106,6 +111,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="DIA1" />
-    <option name="LAST_COMMIT_MESSAGE" value="DIA1" />
+    <MESSAGE value="DIA2" />
+    <option name="LAST_COMMIT_MESSAGE" value="DIA2" />
   </component>
 </project>
