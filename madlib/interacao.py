@@ -1,3 +1,14 @@
+"""Esse foi meu primeiro projeto feito inteiramente por conta própria. Olhar a quantidade de linhas que esse projeto
+demandou me fez pensar que de alguma forma eu poderia diminuí-las; por isso criei a branch "otimizacao" para que eu
+possa futuramente melhorar o projeto.
+Eu sinceramente não pesquisei muito sobre o que é uma Madlib, apenas ví que era uma boa ideia de projeto para um
+iniciante. Então eu ví alguns vídeos de pessoas jogando esse jogo, e, bom, aqui estamos...
+
+Explicação rápida de como funciona (pelo menos do jeito que eu fiz):
+Existe um número mínimo de palavras para que o jogo funcione, e, após digitá-las você terá a opção de adicionar mais.
+Assim que preencher todos os campos a história (ou crônica, chame como quiser) será formada de um jeito aleatório para
+que não fique tão previsível"""
+
 from random import randint
 from funcoes import *
 
