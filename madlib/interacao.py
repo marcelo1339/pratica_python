@@ -3,13 +3,15 @@ from funcoes import *
 
 # Variáveis
 elementos_historia = dict()
+frases = list()
 substantivos = list()
 objetos = list()
 verbos = list()
 lugares = list()
 nomes = list()
-qtd_nom = qtd_lugar = qtd_verbo = qtd_obj = qtd_subs = 0
-nom = continua = lug = ver = obj = subs = ''
+qtd_nom = qtd_lugar = qtd_verbo = qtd_obj = qtd_subs = qtd_fra= 0
+nom = lug = ver = obj = subs = fra = ''
+continua = 'S'
 interrompe = False
 
 # Recebendo dados do usuário
@@ -23,198 +25,231 @@ while True:
         interrompe = True
         encerramento()
         break
-    else:
-        if nom in nomes:
-            print(cores('vermelho', 'Esse ja foi.'))
-        elif len(nom) == 0:
-            print(cores('vermelho', 'Vazio não pode!!'))
-        elif nom not in nomes or len(nom) != 0:
-            nomes.append(nom)
-            qtd_nom += 1
-            print(cores('verde', 'Nome adicionado com sucesso!!'))
+    if nom in nomes:
+        print(cores('vermelho', 'Esse ja foi.'))
+    elif len(nom) == 0:
+        print(cores('vermelho', 'Vazio não pode!!'))
+    elif nom not in nomes or len(nom) != 0:
+        nomes.append(nom)
+        qtd_nom += 1
+        print(cores('verde', 'Nome adicionado com sucesso!!'))
 
-        if qtd_nom >= 4 and not interrompe:
-            while True:
-                try:
-                    linha()
-                    continua = str(input('Quer adicionar mais algum nome? [S/N] ')).strip().upper()[0]
-                    if continua in 'SN':
-                        break
-                    elif continua not in 'SN':
-                        print(cores('vermelho', 'Erro!!'), 'Escolha uma opção válida!')
-                except (ValueError, TypeError, IndexError):
-                    print(cores('vermelho', 'Erro!!'), 'Escolha uma opção válida!')
-                except KeyboardInterrupt:
-                    interrompe = True
-                    encerramento()
+    if qtd_nom >= 4 and not interrompe:
+        while True:
+            try:
+                linha()
+                continua = str(input('Quer adicionar mais algum nome? [S/N] ')).strip().upper()[0]
+                if continua in 'SN':
                     break
-            if continua == 'N' and not interrompe:
+                print(cores('vermelho', 'Erro!!'), 'Escolha uma opção válida!')
+            except (ValueError, TypeError, IndexError):
+                print(cores('vermelho', 'Erro!!'), 'Escolha uma opção válida!')
+            except KeyboardInterrupt:
+                interrompe = True
+                encerramento()
+                break
+
+    if continua == 'N' and not interrompe:
+        continua = 'S'
+        while continua == 'S':
+            try:
+                linha()
+                lug = str(input('Nome de um lugar qualquer: ')).strip()
+            except (TypeError, ValueError):
+                print('Digite um valor válido!')
+            except KeyboardInterrupt:
+                interrompe = True
+                encerramento()
+                break
+            if lug in lugares:
+                print(cores('vermelho', 'Esse ja foi!!'))
+            elif len(lug) == 0:
+                print(cores('vermelho', 'Vazio não pode!!'))
+            elif lug not in lugares or len(lug) != 0:
+                lugares.append(lug)
+                print(cores('verde', 'Lugar adicionado com sucesso!!'))
+                qtd_lugar += 1
+
+            if qtd_lugar >= 4 and not interrompe:
+                continua.replace('S', ' ')
                 while True:
                     try:
                         linha()
-                        lug = str(input('Nome de um lugar qualquer: ')).strip()
-                    except (TypeError, ValueError):
-                        print('Digite um valor válido!')
+                        continua = str(input('Deseja adicionar mais algum lugar??[S/N] ')).strip().upper()[0]
+                        if continua in 'SN':
+                            break
+                        print(cores('vermelho', 'Escolha uma opção válida!!'))
+                    except (ValueError, TypeError, IndexError):
+                        print(cores('vermelho', 'Escolha uma opção válida!!'))
                     except KeyboardInterrupt:
                         interrompe = True
                         encerramento()
                         break
-                    else:
-                        if lug in lugares:
-                            print(cores('vermelho', 'Esse ja foi!!'))
-                        elif len(lug) == 0:
-                            print(cores('vermelho', 'Vazio não pode!!'))
-                        elif lug not in lugares or len(lug) != 0:
-                            lugares.append(lug)
-                            print(cores('verde', 'Lugar adicionado com sucesso!!'))
-                            qtd_lugar += 1
-                        if qtd_lugar >= 4 and not interrompe:
-                            while True:
-                                try:
-                                    linha()
-                                    continua = str(input('Deseja adicionar mais algum lugar??[S/N] ')).strip().upper()[0]
-                                except (ValueError, TypeError, IndexError):
-                                    print(cores('vermelho', 'Escolha uma opção válida!!'))
-                                except KeyboardInterrupt:
-                                    interrompe = True
-                                    encerramento()
-                                    break
-                                else:
-                                    if continua in 'SN':
-                                        break
-                                    print(cores('vermelho', 'Escolha uma opção válida!!'))
-                            if continua == 'N' and not interrompe:
-                                while True:
-                                    try:
-                                        linha()
-                                        print('Serão 8 verbos, tente digitar verbos conjugados de diversas maneiras')
-                                        ver = str(input('Digite um verbo: ')).strip()
-                                    except (ValueError, TypeError):
-                                        print(cores('vermelho', 'Digite um valor válido!!'))
-                                    except KeyboardInterrupt:
-                                        interrompe = True
-                                        encerramento()
-                                        break
-                                    else:
-                                        if ver in verbos:
-                                            print(cores('vermelho', 'Esse já foi!!'))
-                                        elif len(ver) == 0:
-                                            print(cores('vermelho', 'Vazio não pode!!'))
-                                        elif ver not in verbos or len(ver) != 0:
-                                            verbos.append(ver)
-                                            qtd_verbo += 1
-                                            print(cores('verde', 'Verbo adicionado!!'))
 
-                                        if qtd_verbo >= 8 and not interrompe:
-                                            while True:
-                                                try:
-                                                    linha()
-                                                    continua = str(input('Quer adicionar outro verbo?[S/N] ')).strip().upper()[0]
-                                                except (TypeError, ValueError, IndexError):
-                                                    print(cores('vermelho', 'Escolha uma opção válida!!'))
-                                                except KeyboardInterrupt:
-                                                    interrompe = True
-                                                    encerramento()
-                                                    break
-                                                else:
-                                                    if continua in 'SN':
-                                                        break
-                                                    print(cores('vermelho', 'Escolha uma opção válida!!'))
-                                            if continua == 'N' and not interrompe:
-                                                while True:
-                                                    try:
-                                                        linha()
-                                                        obj = str(input('Digite o nome de um objeto: ')).strip()
-                                                    except (ValueError, TypeError):
-                                                        print(cores('vermelho', 'Escolha uma opção válida!!'))
-                                                    except KeyboardInterrupt:
-                                                        interrompe = True
-                                                        encerramento()
-                                                        break
-                                                    else:
-                                                        if obj in objetos:
-                                                            print(cores('vermelho', 'Esse já foi!!'))
+    if continua == 'N' and not interrompe:
+        continua = 'S'
+        while continua == 'S':
+            try:
+                linha()
+                print('Serão 8 verbos, tente digitar verbos conjugados de diversas maneiras')
+                ver = str(input('Digite um verbo: ')).strip()
+            except (ValueError, TypeError):
+                print(cores('vermelho', 'Digite um valor válido!!'))
+            except KeyboardInterrupt:
+                interrompe = True
+                encerramento()
+                break
+            if ver in verbos:
+                print(cores('vermelho', 'Esse já foi!!'))
+            elif len(ver) == 0:
+                print(cores('vermelho', 'Vazio não pode!!'))
+            elif ver not in verbos or len(ver) != 0:
+                verbos.append(ver)
+                qtd_verbo += 1
+                print(cores('verde', 'Verbo adicionado!!'))
 
-                                                        if len(obj) == 0:
-                                                            print(cores('vermelho', 'Vazio não pode'))
+            if qtd_verbo >= 8 and not interrompe:
+                continua.replace('S', ' ')
+                while True:
+                    try:
+                        linha()
+                        continua = str(input('Quer adicionar outro verbo?[S/N] ')).strip().upper()[0]
+                        if continua in 'SN':
+                            break
+                        print(cores('vermelho', 'Escolha uma opção válida!!'))
+                    except (TypeError, ValueError, IndexError):
+                        print(cores('vermelho', 'Escolha uma opção válida!!'))
+                    except KeyboardInterrupt:
+                        interrompe = True
+                        encerramento()
+                        break
 
-                                                        if obj not in objetos and len(obj) != 0:
-                                                            objetos.append(obj)
-                                                            qtd_obj += 1
-                                                            print(cores('verde', 'Objeto adicionado com sucesso!!'))
+    if continua == 'N' and not interrompe:
+        continua = 'S'
+        while continua == 'S':
+            try:
+                linha()
+                obj = str(input('Digite o nome de um objeto: ')).strip()
+            except (ValueError, TypeError):
+                print(cores('vermelho', 'Escolha uma opção válida!!'))
+            except KeyboardInterrupt:
+                interrompe = True
+                encerramento()
+                break
+            if obj in objetos:
+                print(cores('vermelho', 'Esse já foi!!'))
 
-                                                        if qtd_obj >= 3 and not interrompe:
-                                                            while True:
-                                                                try:
-                                                                    linha()
-                                                                    continua = str(input('Quer adicionar outro objeto? [S/N] ')).strip().upper()[0]
-                                                                except (TypeError, ValueError, IndexError):
-                                                                    print(cores('vermelho', 'Escolha uma opção válida!!'))
-                                                                except KeyboardInterrupt:
-                                                                    interrompe = True
-                                                                    encerramento()
-                                                                    break
-                                                                else:
-                                                                    if continua in 'SN':
-                                                                        break
-                                                                    print(cores('vermelho', 'Escolha uma opção válida!!'))
-                                                            if continua == 'N' and not interrompe:
-                                                                while True:
-                                                                    try:
-                                                                        linha()
-                                                                        subs = str(input('Digite um substantivo qualquer: '))
-                                                                    except (ValueError, TypeError):
-                                                                        print(cores('vermelho', 'Digite um valor válido!!'))
-                                                                    except KeyboardInterrupt:
-                                                                        interrompe = True
-                                                                        encerramento()
-                                                                        break
-                                                                    else:
-                                                                        if subs in substantivos:
-                                                                            print(cores('vermelho', 'Repetido não pode!!'))
+            if len(obj) == 0:
+                print(cores('vermelho', 'Vazio não pode'))
 
-                                                                        if len(subs) == 0:
-                                                                            print(cores('vermelho', 'Vazio não pode!!'))
+            if obj not in objetos and len(obj) != 0:
+                objetos.append(obj)
+                qtd_obj += 1
+                print(cores('verde', 'Objeto adicionado com sucesso!!'))
 
-                                                                        if subs not in substantivos and len(subs) != 0:
-                                                                            substantivos.append(subs)
-                                                                            qtd_subs += 1
-                                                                            print(cores('verde', 'Substantivo adicionado com sucesso!!'))
+            if qtd_obj >= 3 and not interrompe:
+                continua.replace('S', ' ')
+                while True:
+                    try:
+                        linha()
+                        continua = str(input('Quer adicionar outro objeto? [S/N] ')).strip().upper()[0]
+                        if continua in 'SN':
+                            break
+                        print(cores('vermelho', 'Escolha uma opção válida!!'))
+                    except (TypeError, ValueError, IndexError):
+                        print(cores('vermelho', 'Escolha uma opção válida!!'))
+                    except KeyboardInterrupt:
+                        interrompe = True
+                        encerramento()
+                        break
 
-                                                                        if qtd_subs >= 2 and not interrompe:
-                                                                            while True:
-                                                                                try:
-                                                                                    linha()
-                                                                                    continua = str(input('Quer adicionar outro substantivo [S/N]'
-                                                                                                         '?? ')).strip().upper()[0]
-                                                                                except (ValueError, IndexError, TypeError):
-                                                                                    print(cores('vermelho', 'Escolha uma opção válida!!'))
-                                                                                except KeyboardInterrupt:
-                                                                                    interrompe = True
-                                                                                    encerramento()
-                                                                                    break
-                                                                                else:
-                                                                                    if continua in 'SN':
-                                                                                        break
-                                                                                    print(cores('vermelho', 'Escolha uma opção válida!!'))
-                                                                            if continua == 'N' and not interrompe:
-                                                                                try:
-                                                                                    linha()
-                                                                                    frase = str(input('Digite uma frase de efeito: ')).strip()
-                                                                                except (ValueError, TypeError):
-                                                                                    print(cores('vermelho', 'Digite um valor válido!!'))
-                                                                                except KeyboardInterrupt:
-                                                                                    interrompe = True
-                                                                                    encerramento()
-                                                                                    break
-                                                                                finally:
-                                                                                    linha()
-                                                                                    print(cores('verde', 'Todos os dados foram adicionados!!'))
-                                                                                    interrompe = True
-                                                                                    break
+    if continua == 'N' and not interrompe:
+        continua = 'S'
+        while continua == 'S':
+            try:
+                linha()
+                subs = str(input('Digite um substantivo qualquer: '))
+            except (ValueError, TypeError):
+                print(cores('vermelho', 'Digite um valor válido!!'))
+            except KeyboardInterrupt:
+                interrompe = True
+                encerramento()
+                break
+            if subs in substantivos:
+                print(cores('vermelho', 'Repetido não pode!!'))
+
+            if len(subs) == 0:
+                print(cores('vermelho', 'Vazio não pode!!'))
+
+            if subs not in substantivos and len(subs) != 0:
+                substantivos.append(subs)
+                qtd_subs += 1
+                print(cores('verde', 'Substantivo adicionado com sucesso!!'))
+
+            if qtd_subs >= 2 and not interrompe:
+                continua.replace('S', ' ')
+                while True:
+                    try:
+                        linha()
+                        continua = str(input('Quer adicionar outro substantivo [S/N]''?? ')).strip().upper()[0]
+                        if continua in 'SN':
+                            break
+                        print(cores('vermelho', 'Escolha uma opção válida!!'))
+                    except (ValueError, IndexError, TypeError):
+                        print(cores('vermelho', 'Escolha uma opção válida!!'))
+                    except KeyboardInterrupt:
+                        interrompe = True
+                        encerramento()
+                        break
+
+    if continua == 'N' and not interrompe:
+        continua = 'S'
+        while continua == 'S':
+            try:
+                linha()
+                fra = str(input('Digite uma frase de efeito: ')).strip()
+            except (ValueError, TypeError):
+                print(cores('vermelho', 'Digite um valor válido!!'))
+            except KeyboardInterrupt:
+                interrompe = True
+                encerramento()
+                break
+            if fra in frases:
+                print(cores('vermelho', 'Repetido não pode!!'))
+
+            if len(fra) == 0:
+                print(cores('vermelho', 'Vazio não pode'))
+
+            if fra not in frases and len(fra) != 0:
+                frases.append(fra)
+                qtd_fra += 1
+                print(cores('verde', 'Frase adicionada com sucesso!!'))
+
+            if qtd_fra >= 1 and not interrompe:
+                continua.replace('S', ' ')
+                while True:
+                    try:
+                        linha()
+                        continua = str(input('Quer adicionar outra frase?? [S/N] ')).strip().upper()[0]
+                        if continua in 'SN':
+                            break
+                        print(cores('vermelho', 'Erro'), 'Escolha uma opção válida!!')
+                    except (IndexError, TypeError, ValueError):
+                        print(cores('vermelho', 'Erro!!'), 'Digite uma opção válida!!')
+                    except KeyboardInterrupt:
+                        interrompe = True
+                        encerramento()
+                        break
+    if continua == 'N':
+        sleep(1)
+        break
+
     if interrompe:
         break
 
+linha()
+print(cores('verde', 'Os dados foram adicionados!!'))
+print(substantivos, objetos, verbos, lugares, nomes, frases)
 
 """
     O jovem (protagonista) estava em seu (lugar) enquanto seus país conversavam em voz baixa, em outro cômodo...
