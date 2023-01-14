@@ -1,11 +1,6 @@
 from time import sleep
 
 
-def len_lista(lis):
-    tam = len(lis)
-    return tam
-
-
 def cores(cor, msg):
     cor = str(cor).lower()
     c = {'fechar': '\033[m', 'vermelho': '\033[31m', 'verde': '\033[32m', 'amarelo': '\033[33m', 'azul': '\033[34m',
