@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
 <<<<<<< Updated upstream
-    <list default="true" id="da0e0c16-777a-4663-8fbc-0ed2c7e76e07" name="Changes" comment="FIM">
+    <list default="true" id="da0e0c16-777a-4663-8fbc-0ed2c7e76e07" name="Changes" comment="comentario-final">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/madlib/interacao.py" beforeDir="false" afterPath="$PROJECT_DIR$/madlib/interacao.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pc_adivinhaonumero/interacao.py" beforeDir="false" afterPath="$PROJECT_DIR$/pc_adivinhaonumero/interacao.py" afterDir="false" />
     </list>
 =======
     <list default="true" id="da0e0c16-777a-4663-8fbc-0ed2c7e76e07" name="Changes" comment="dia 2" />
@@ -20,6 +20,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -38,6 +39,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/marce/PycharmProjects/pratica_python&quot;,
@@ -46,10 +48,13 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marce\PycharmProjects\pratica_python\adivinha" />
+      <recent name="C:\Users\marce\PycharmProjects\pratica_python\email" />
+      <recent name="C:\Users\marce\PycharmProjects\pratica_python" />
       <recent name="C:\Users\marce\PycharmProjects\pratica_python\madlib1" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.interacao (1)">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -63,6 +68,48 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="" />
       <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="email_sender" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pratica_python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/email" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/email/email_sender.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="interacao (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pratica_python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pc_adivinhaonumero" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pc_adivinhaonumero/interacao.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -85,6 +132,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/madlib/interacao.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pc_adivinhaonumero" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pratica_python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\marce\PycharmProjects\pratica_python\adivinha\pc_adivinhaonumero.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -155,6 +223,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.interacao (1)" />
+        <item itemvalue="Python.pc_adivinhaonumero" />
+        <item itemvalue="Python.email_sender" />
         <item itemvalue="Python.interacao" />
         <item itemvalue="Python.interacao" />
       </list>
@@ -204,25 +275,7 @@
       <option name="project" value="LOCAL" />
       <updated>1673719199244</updated>
     </task>
-<<<<<<< Updated upstream
     <option name="localTasksCounter" value="6" />
-=======
-    <task id="LOCAL-00006" summary="comentario-final">
-      <created>1673720202319</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1673720202319</updated>
-    </task>
-    <task id="LOCAL-00007" summary="dia 2">
-      <created>1674484419949</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1674484419949</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
->>>>>>> Stashed changes
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -242,12 +295,6 @@
     <MESSAGE value="DIA4" />
     <MESSAGE value="DIA5" />
     <MESSAGE value="FIM" />
-<<<<<<< Updated upstream
     <option name="LAST_COMMIT_MESSAGE" value="FIM" />
-=======
-    <MESSAGE value="comentario-final" />
-    <MESSAGE value="dia 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="dia 2" />
->>>>>>> Stashed changes
   </component>
 </project>
