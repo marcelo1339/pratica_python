@@ -1,8 +1,11 @@
 from random import randint
 from pc_adivinhaonumero.funcoes import *
+from time import sleep
+
 
 usu = int()
 num = randint(-1000, 1000)
+interrompe = False
 print(num)
 
 linha()
@@ -11,8 +14,17 @@ linha()
 
 print(f'{formatacao("sublinhado", "-1000 <= Valor <= 1000")}'.rjust(87))
 
-while usu != num:
-    usu = int(input('Sua tentativa>> '))
+while usu != num or not interrompe:
+    try:
+        usu = int(input('Sua tentativa>> '))
+    except (ValueError, TypeError):
+        print(formatacao('vermelho', 'Erro!! Digite uma valor válido'))
+    except KeyboardInterrupt:
+        interrompe = True
+        print('\nEncerrando...')
+        sleep(1.5)
+        print('O programa foi encerrado durante sua execução.')
+        break
 
     if num >= 0:
         if num < usu <= num + 100:
