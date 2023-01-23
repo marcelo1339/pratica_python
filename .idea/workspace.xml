@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="da0e0c16-777a-4663-8fbc-0ed2c7e76e07" name="Changes" comment="FIM">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/madlib/interacao.py" beforeDir="false" afterPath="$PROJECT_DIR$/madlib/interacao.py" afterDir="false" />
     </list>
+=======
+    <list default="true" id="da0e0c16-777a-4663-8fbc-0ed2c7e76e07" name="Changes" comment="dia 2" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -200,7 +204,25 @@
       <option name="project" value="LOCAL" />
       <updated>1673719199244</updated>
     </task>
+<<<<<<< Updated upstream
     <option name="localTasksCounter" value="6" />
+=======
+    <task id="LOCAL-00006" summary="comentario-final">
+      <created>1673720202319</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673720202319</updated>
+    </task>
+    <task id="LOCAL-00007" summary="dia 2">
+      <created>1674484419949</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1674484419949</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+>>>>>>> Stashed changes
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -220,6 +242,12 @@
     <MESSAGE value="DIA4" />
     <MESSAGE value="DIA5" />
     <MESSAGE value="FIM" />
+<<<<<<< Updated upstream
     <option name="LAST_COMMIT_MESSAGE" value="FIM" />
+=======
+    <MESSAGE value="comentario-final" />
+    <MESSAGE value="dia 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="dia 2" />
+>>>>>>> Stashed changes
   </component>
 </project>
