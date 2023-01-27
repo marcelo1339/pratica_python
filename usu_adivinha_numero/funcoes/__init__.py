@@ -13,4 +13,4 @@ def formatacao(fmt, msg):
 
 
 def linha():
-    print('-=' * 30)
+    print('-=' * 40)
