@@ -1,6 +1,6 @@
 """O usuário vai digitar um número e o PC vai tentar adivinhá-lo. Conforme o PC tenta adivinhar o usuário vai "comandar"
 os palpites dele dizendo se ele deve chutar mais para baixo ou mais para cima."""
-# Falta fazer o programa não gerar números repetidos
+
 
 from random import randint
 from time import sleep
@@ -8,7 +8,7 @@ from usu_adivinha_numero.funcoes import *
 
 interrompe = False
 n = opc = pc = 0
-tentativas = set()
+tentativas = list()
 
 linha()
 print('Digite um número entre -1000 e 1000, para que eu possa tentar adivinhá-lo'.center(80))
@@ -28,8 +28,9 @@ while not interrompe:
         sleep(1)
         print('O Programa foi encerrado antes do fim.')
 
-if pc not in tentativas:
-    pc = randint(-1000, 1000)
+
+pc = randint(-1000, 1000)
+
 
 while not interrompe:
     linha()
@@ -39,7 +40,7 @@ while not interrompe:
         print(f'{formatacao("verde", "Acertei!!")} Parece que estou com sorte.')
         break
     elif pc != n:
-        tentativas = pc
+        tentativas.append(pc)
 
         linha()
         print('Me guie!'.center(80))
@@ -63,12 +64,23 @@ while not interrompe:
                 print('\nEncerrando...')
                 sleep(1)
                 print('O programa foi encerrado antes do fim.')
+
         if opc == 1:
-            pc = randint(pc, pc + 100)
-            tentativas = pc
+            while True:
+                pc = randint(pc, pc + 100)
+                if pc not in tentativas:
+                    tentativas.append(pc)
+                    break
+                elif pc in tentativas:
+                    tentativas.append(pc)
         elif opc == 2:
-            pc = randint(pc - 100, pc)
-            tentativas = pc
+            while True:
+                pc = randint(pc - 100, pc)
+                if pc not in tentativas:
+                    tentativas.append(pc)
+                    break
+                elif pc in tentativas:
+                    tentativas.append(pc)
         elif opc == 3:
             interrompe = True
             print('Encerrando...')
