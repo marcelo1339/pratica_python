@@ -1,5 +1,5 @@
 from random import randint
-from pc_adivinhaonumero.funcoes import *
+from p2_pc_adivinhaonumero.funcoes import *
 from time import sleep
 
 

@@ -4,7 +4,7 @@ os palpites dele dizendo se ele deve chutar mais para baixo ou mais para cima.""
 
 from random import randint
 from time import sleep
-from usu_adivinha_numero.funcoes import *
+from p3_usu_adivinha_numero.funcoes import *
 
 interrompe = False
 n = opc = pc = 0

@@ -1,5 +1,5 @@
 """Pedra, papel ou tesoura"""
-from pedra_papel_tesoura.funcoes import *
+from p4_pedra_papel_tesoura.funcoes import *
 from time import sleep
 from random import choice
 
