@@ -6,12 +6,12 @@ from time import sleep
 
 
 cabeca = tronco = perna_esq = perna_dir = braco_esq = braco_dir = olhos = nariz = boca = interrompe = False
-palavras = set()
 usu = str()
+palavra = list()
+plv_auxiliar = list()
 plvs_usadas = list()
-cont = 0
+cont = c = 0
 word = palavra_txt('palavras.txt')
-
 
 while True:
     if (cabeca and tronco and perna_esq and perna_dir and braco_esq and braco_dir and olhos and nariz and boca) \
@@ -34,13 +34,32 @@ while True:
             print(f'--Você tem {9 - cont} tentativas.')
             print(f'--A palavra tem {len(word)-1} letras.')
             usu = str(input('>>Tente uma letra: ')).strip().upper()[0]
+
             if not usu.isalpha():
                 print('Por favor, tente uma letra!')
 
             if usu.upper() not in word.upper() and usu.isalpha():
                 if usu.upper() not in plvs_usadas:
                     plvs_usadas.append(usu)
+                    print(plvs_usadas)
                 cont += 1
+            elif usu.upper() in word.upper():
+                if c == 0:
+                    for letra in word:
+                        if usu.lower() == letra.lower():
+                            palavra.append(letra)
+                        elif usu.lower() != letra.lower():
+                            palavra.append('_')
+                    c += 1
+
+                for elemento in palavra:
+
+
+                for elemento in palavra:
+                    print(elemento, end='')
+
+                print()
+
 
             if cont == 1:
                 cabeca = True
@@ -60,10 +79,6 @@ while True:
                 nariz = True
             elif cont == 9:
                 boca = True
-
-            print(plvs_usadas)
-            """(primeiro a cabeça, depois o tronco, de seguida pernas e braços e termina-se com olhos, nariz e boca)"""
-
 
         except (ValueError, TypeError, IndexError):
             print('Por favor, tente uma letra!')
