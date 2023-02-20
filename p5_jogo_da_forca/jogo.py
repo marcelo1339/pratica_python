@@ -8,9 +8,8 @@ from time import sleep
 cabeca = tronco = perna_esq = perna_dir = braco_esq = braco_dir = olhos = nariz = boca = interrompe = False
 usu = str()
 palavra = list()
-plv_auxiliar = list()
 plvs_usadas = list()
-cont = c = 0
+cont = c = letras_repetidas = 0
 word = palavra_txt('palavras.txt')
 
 while True:
@@ -25,7 +24,7 @@ while True:
 
     while True:
         try:
-            if cabeca and tronco and perna_esq and perna_dir and braco_esq and braco_dir and olhos and nariz and boca:
+            if cont == 9:
                 print(' :-( Parece que você perdeu!')
                 break
 
@@ -41,47 +40,31 @@ while True:
             if usu.upper() not in word.upper() and usu.isalpha():
                 if usu.upper() not in plvs_usadas:
                     plvs_usadas.append(usu)
-                    print(plvs_usadas)
+                print(plvs_usadas)
                 cont += 1
             elif usu.upper() in word.upper():
                 if c == 0:
                     for letra in word:
                         if usu.lower() == letra.lower():
-                            palavra.append(letra)
+                            palavra.append(letra.lower())
                         elif usu.lower() != letra.lower():
                             palavra.append('_')
                     c += 1
+                    print(palavra)
+                elif c > 0:
+                    for letra in word:
+                        if usu.lower() == letra.lower():
+                            if palavra[word.index(letra)] == '_':
+                                palavra.pop(word.index(usu, letras_repetidas, -1))
+                                palavra.insert(word.index(usu, letras_repetidas, -1), letra)
+                                letras_repetidas = word.index(usu)
+            for elemento in palavra:
+                print(elemento, end='')
+            print()
 
-                for elemento in palavra:
-
-
-                for elemento in palavra:
-                    print(elemento, end='')
-
-                print()
-
-
-            if cont == 1:
-                cabeca = True
-            elif cont == 2:
-                tronco = True
-            elif cont == 3:
-                perna_esq = True
-            elif cont == 4:
-                perna_dir = True
-            elif cont == 5:
-                braco_dir = True
-            elif cont == 6:
-                braco_esq = True
-            elif cont == 7:
-                olhos = True
-            elif cont == 8:
-                nariz = True
-            elif cont == 9:
-                boca = True
-
-        except (ValueError, TypeError, IndexError):
+        except (ValueError, TypeError, IndexError) as erro:
             print('Por favor, tente uma letra!')
+            print(f'Seu erro foi {erro}')
         except KeyboardInterrupt:
             print('\nEncerrando...')
             sleep(1)
