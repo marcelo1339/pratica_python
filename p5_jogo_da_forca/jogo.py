@@ -5,18 +5,26 @@ from p5_jogo_da_forca.funcoes import *
 from time import sleep
 
 
-cabeca = tronco = perna_esq = perna_dir = braco_esq = braco_dir = olhos = nariz = boca = interrompe = False
+interrompe = False
 usu = str()
 palavra = list()
+nao_existe = list()
 plvs_usadas = list()
-cont = c = letras_repetidas = 0
-word = palavra_txt('palavras.txt')
+letras_repetidas = list()
+word = list()
+cont = c = indice_atual = 0
+
+for l in palavra_txt('palavras.txt'):
+    word.append(l.lower())
+
+del word[-1]
+
+for l in word:
+    palavra.append('_')
 
 while True:
-    if (cabeca and tronco and perna_esq and perna_dir and braco_esq and braco_dir and olhos and nariz and boca) \
-            or interrompe:
+    if cont == 9 or interrompe:
         break
-
 
     linha()
     print('Jogo da forca'.center(60))
@@ -25,39 +33,30 @@ while True:
     while True:
         try:
             if cont == 9:
-                print(' :-( Parece que você perdeu!')
+                print(':-( Parece que você perdeu!')
                 break
 
             linha()
+
             print(word)
+
             print(f'--Você tem {9 - cont} tentativas.')
-            print(f'--A palavra tem {len(word)-1} letras.')
-            usu = str(input('>>Tente uma letra: ')).strip().upper()[0]
+            print(f'--A palavra tem {len(word)} letras.')
+            usu = str(input('>>Tente uma letra: ')).strip().lower()[0]
 
             if not usu.isalpha():
                 print('Por favor, tente uma letra!')
 
-            if usu.upper() not in word.upper() and usu.isalpha():
-                if usu.upper() not in plvs_usadas:
-                    plvs_usadas.append(usu)
-                print(plvs_usadas)
+            if usu not in word and usu.isalpha():
+                if usu not in nao_existe:
+                    nao_existe.append(usu)
+                print(nao_existe)
                 cont += 1
-            elif usu.upper() in word.upper():
-                if c == 0:
-                    for letra in word:
-                        if usu.lower() == letra.lower():
-                            palavra.append(letra.lower())
-                        elif usu.lower() != letra.lower():
-                            palavra.append('_')
-                    c += 1
-                    print(palavra)
-                elif c > 0:
-                    for letra in word:
-                        if usu.lower() == letra.lower():
-                            if palavra[word.index(letra)] == '_':
-                                palavra.pop(word.index(usu, letras_repetidas, -1))
-                                palavra.insert(word.index(usu, letras_repetidas, -1), letra)
-                                letras_repetidas = word.index(usu)
+
+            if usu in word:
+                indice_atual = word.index(usu, indice_atual)
+                print(indice_atual)
+
             for elemento in palavra:
                 print(elemento, end='')
             print()
@@ -71,7 +70,3 @@ while True:
             interrompe = True
             print('Programa encerrado')
             break
-
-
-
-"""(primeiro a cabeça, depois o tronco, de seguida pernas e braços e termina-se com olhos, nariz e boca)"""
