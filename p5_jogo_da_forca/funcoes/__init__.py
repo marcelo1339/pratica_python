@@ -23,7 +23,7 @@ def palavra_txt(origem_txt):
         with open(origem_txt, 'r', encoding='utf-8') as plv:
             for p in plv:
                 cont = 0
-                aleatorio = randint(0, 1)
+                aleatorio = randint(0, 3)
                 if (p.upper()[0] == letra) and ('-' not in p) and ('.' not in p) and (' ' not in p) and (aleatorio == 1) \
                         and len(p) > 4 and (cont <= 1000):
                     s.add(p.lower())
