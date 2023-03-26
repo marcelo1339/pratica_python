@@ -11,7 +11,7 @@ palavra = list()
 letra_nao_existe = list()
 word = list()
 indice_letra_repetida = list()
-errou = repetidas = total_tentativas = 0
+errou = repetidas = total_tentativas = dificuldade = 0
 
 while True:
     try:
