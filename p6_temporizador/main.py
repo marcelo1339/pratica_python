@@ -3,11 +3,9 @@ from time import sleep
 
 def timer(horas, minutos, segundos):
 
-
     if minutos >= 60:
         horas += divmod(minutos, 60)[0]
         minutos = divmod(minutos, 60)[1]
-
 
     if segundos >= 60:
         minutos += divmod(segundos, 60)[0]
@@ -28,7 +26,6 @@ def timer(horas, minutos, segundos):
         if segundos == 0:
             minutos -= 1
             segundos += 60
-
 
         segundos -= 1
         sleep(1)

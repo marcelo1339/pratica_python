@@ -1,3 +1,6 @@
+"""Eu não recomendo o uso desse programa para gerar senhas que serão efetivamente usadas no
+seu dia a dia. Isso porquê, eu apenas o criei para praticar programação."""
+
 from random import choice
 
 
@@ -12,28 +15,21 @@ def gerar_senha(qtd_senhas, qtd_caracteres):
                               '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']',
                               '^', '_', '`', '{', '|', '}', '~']
 
-    senha_atual = list()
     senhas = dict()
 
+    for s in range(0, qtd_senhas):
+        senha_atual = ''
 
-    for c in range(0, qtd_senhas):
         for caractere in range(0, qtd_caracteres):
-            senha_atual.append(choice(caracteres_disponiveis))
+            escolha = choice(caracteres_disponiveis)
+            senha_atual += escolha
 
         if senha_atual not in senhas.values():
-            senhas[f'senha{c}'] = senha_atual[:]
-            senha_atual.clear()
+            senhas[f'senha{s}'] = senha_atual
 
-    s = ''
-    for pos, c in enumerate(senhas.values()):
-        for caractere in c:
-            s += f'{caractere}'
-            if len(s) == len(c):
-                break
-
-    print(s)
-    return senhas
+    for p, senha in enumerate(senhas.values()):
+        print(f'senha{p}: {senha}')
 
 
 if __name__ == '__main__':
-    print(gerar_senha(3, 5))
+    (gerar_senha(9, 10))
