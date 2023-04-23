@@ -2,6 +2,7 @@
 seu dia a dia. Isso porquê, eu apenas o criei para praticar programação."""
 
 from random import choice
+from time import sleep
 
 
 def gerar_senha(qtd_senhas, qtd_caracteres):
@@ -14,7 +15,6 @@ def gerar_senha(qtd_senhas, qtd_caracteres):
                               ' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',',
                               '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']',
                               '^', '_', '`', '{', '|', '}', '~']
-
     senhas = dict()
 
     for s in range(0, qtd_senhas):
@@ -28,8 +28,9 @@ def gerar_senha(qtd_senhas, qtd_caracteres):
             senhas[f'senha{s}'] = senha_atual
 
     for p, senha in enumerate(senhas.values()):
-        print(f'senha{p}: {senha}')
+        print(f'senha{p+1}: {senha}')
+        sleep(0.5)
 
 
 if __name__ == '__main__':
-    (gerar_senha(9, 10))
+    (gerar_senha(12, 11))
