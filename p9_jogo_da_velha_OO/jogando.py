@@ -1,5 +1,6 @@
 from jogo import *
 from time import sleep
+from random import randint
 
 
 def linha():
@@ -13,12 +14,18 @@ def encerramento():
 
 
 jogadores_ou_maquina = 0
-nome = ''
-player1 = player2 = pc = ''
+
+jogadores_criados = 1
+
+player1 = player2 = oponente = nome = jogada = ''
+
+quem_comeca = randint(1, 2)
 
 linha()
 print('[1] Contra a máquina [2] Dois Jogadores '.center(60))
 linha()
+
+tabuleiro = JogoDaVelha()
 
 while True:
     try:
@@ -36,10 +43,10 @@ while True:
 
 
 if jogadores_ou_maquina == 1:
-    pc = Maquina()
+    player1 = Jogador(nome=nome, escolha='x')
+    oponente = Maquina(escolha='o')
 elif jogadores_ou_maquina == 2:
     while True:
-        jogadores_criados = 1
         try:
             nome = str(input(f'Nome do jogador {jogadores_criados}')).title()
         except KeyboardInterrupt:
@@ -47,9 +54,32 @@ elif jogadores_ou_maquina == 2:
             break
 
         if jogadores_criados == 1:
-            player1 = Jogador(nome=nome)
+            player1 = Jogador(nome=nome, escolha='x')
             jogadores_criados += 1
-        elif jogadores_criados == 2:
-            player2 = Oponente(nome=nome)
+            continue
+
+        if jogadores_criados == 2:
+            player2 = Jogador(nome=nome, escolha='o')
             break
 
+if quem_comeca == 1:
+    vez_do_jogador = player1.nome
+elif quem_comeca == 2:
+    vez_do_jogador = player2.nome
+
+while True:
+    tabuleiro.representacao_tabuleiro()
+    print(tabuleiro.tabuleiro)
+
+    while True:
+        try:
+            jogada = str(input('Sua vez {}: '))
+
+            if jogada in tabuleiro.tabuleiro.keys():
+                break
+            print('Escolha uma opção válida')
+
+        except KeyboardInterrupt:
+            encerramento()
+            break
+    break
