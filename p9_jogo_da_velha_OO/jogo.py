@@ -10,9 +10,9 @@ class JogoDaVelha:
 
     def representacao_tabuleiro(self):
         print('    A    |    B   |    C')
-        print(f'1    {self.__tabuleiro["A1"]}    |    {self.__tabuleiro["A2"]}    |    {self.__tabuleiro["A3"]}')
-        print(f'2    {self.__tabuleiro["B1"]}    |    {self.__tabuleiro["B2"]}    |    {self.__tabuleiro["B3"]}')
-        print(f'3    {self.__tabuleiro["C1"]}    |    {self.__tabuleiro["C2"]}    |    {self.__tabuleiro["C3"]}')
+        print(f'1    {self.__tabuleiro["A1"]}    |    {self.__tabuleiro["B1"]}    |    {self.__tabuleiro["C1"]}')
+        print(f'2    {self.__tabuleiro["A2"]}    |    {self.__tabuleiro["B2"]}    |    {self.__tabuleiro["C2"]}')
+        print(f'3    {self.__tabuleiro["A3"]}    |    {self.__tabuleiro["B3"]}    |    {self.__tabuleiro["C3"]}')
 
     def joga(self, coluna_e_linha, x_ou_o):
         self.__tabuleiro[coluna_e_linha] = x_ou_o
@@ -24,7 +24,7 @@ class Jogador:
         self._escolha = escolha
 
     def __str__(self):
-        return f'Nome: {self.nome}. Escolha: {self._escolha}'
+        return f'Nome: {self._nome}. Escolha: {self._escolha}'
 
     @property
     def escolha(self):
@@ -32,7 +32,7 @@ class Jogador:
 
     @property
     def nome(self):
-        return self.nome
+        return self._nome
 
 
 class Maquina:
