@@ -13,7 +13,8 @@ def encerramento():
     print('Programa encerrado!')
 
 
-player1 = player2 = oponente = nome = jogada = vez_do_jogador = x_ou_o = ''
+player1 = player2 = oponente = nome = jogada = nome_jogador_da_vez = escolha_jogador_da_vez = x_ou_o = ''
+
 jogo_interrompido = False
 
 linha()
@@ -60,38 +61,42 @@ if jogadores_ou_maquina == 2 and not jogo_interrompido:
     jogadores_criados = 1
     while True:
         try:
-            nome = str(input(f'Nome do jogador {jogadores_criados}: ')).title().strip()
+
+            if jogadores_criados == 1:
+
+                nome = str(input(f'Nome do jogador {jogadores_criados}: ')).title().strip()
+                player1 = Jogador(nome=nome, escolha='x')
+                jogadores_criados += 1
+
+            if jogadores_criados == 2:
+
+                nome = str(input(f'Nome do jogador {jogadores_criados}: ')).title().strip()
+                player2 = Jogador(nome=nome, escolha='o')
+                break
+
         except KeyboardInterrupt:
             encerramento()
             jogo_interrompido = True
             break
 
-        if jogadores_criados == 1:
-            player1 = Jogador(nome=nome, escolha='x')
-            jogadores_criados += 1
-
-        if jogadores_criados == 2:
-            player2 = Jogador(nome=nome, escolha='o')
-            jogadores_criados += 1
-
-        if jogadores_criados == 3:
-            break
-
     quem_comeca = randint(1, 2)
     if quem_comeca == 1:
-        vez_do_jogador = player1.nome
+        nome_jogador_da_vez = player1.nome
+        escolha_jogador_da_vez = player1.escolha
 
     if quem_comeca == 2:
-        vez_do_jogador = player2.nome
+        nome_jogador_da_vez = player2.nome
+        escolha_jogador_da_vez = player2.escolha
 
-if jogadores_ou_maquina in (1, 2) and not jogo_interrompido:
+if not jogo_interrompido:
     while True:
         tabuleiro.representacao_tabuleiro()
-        print(tabuleiro.tabuleiro)
 
         while True:
+
             try:
-                jogada = str(input(f'Sua vez {vez_do_jogador}: ')).strip().upper()
+
+                jogada = str(input(f'Sua vez {nome_jogador_da_vez} ({escolha_jogador_da_vez}): ')).strip().upper()
 
                 if jogada in tabuleiro.tabuleiro.keys():
                     break
@@ -104,10 +109,15 @@ if jogadores_ou_maquina in (1, 2) and not jogo_interrompido:
         if jogo_interrompido:
             break
 
-        if vez_do_jogador == player1.nome:
+        if nome_jogador_da_vez == player1.nome:
             tabuleiro.joga(jogada, player1.escolha)
-            vez_do_jogador = player2.nome
 
-        if vez_do_jogador == player2.nome:
+            nome_jogador_da_vez = player2.nome
+            escolha_jogador_da_vez = player2.escolha
+            continue
+
+        if nome_jogador_da_vez == player2.nome:
             tabuleiro.joga(jogada, player2.escolha)
-            vez_do_jogador = player1.nome
+
+            nome_jogador_da_vez = player1.nome
+            escolha_jogador_da_vez = player1.escolha

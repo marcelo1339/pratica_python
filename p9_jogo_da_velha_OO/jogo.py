@@ -9,13 +9,24 @@ class JogoDaVelha:
         return self.__tabuleiro
 
     def representacao_tabuleiro(self):
-        print('    A    |    B   |    C')
-        print(f'1    {self.__tabuleiro["A1"]}    |    {self.__tabuleiro["B1"]}    |    {self.__tabuleiro["C1"]}')
-        print(f'2    {self.__tabuleiro["A2"]}    |    {self.__tabuleiro["B2"]}    |    {self.__tabuleiro["C2"]}')
-        print(f'3    {self.__tabuleiro["A3"]}    |    {self.__tabuleiro["B3"]}    |    {self.__tabuleiro["C3"]}')
+
+        print('    A     |    B    |    C')
+
+        print(f'1    {self.__tabuleiro["A1"].center(1)}    |    {self.__tabuleiro["B1"].center(1)}    |    '
+              f'{self.__tabuleiro["C1"].center(1)}')
+
+        print(f'2    {self.__tabuleiro["A2"].center(1)}    |    {self.__tabuleiro["B2"].center(1)}    |    '
+              f'{self.__tabuleiro["C2"]}')
+
+        print(f'3    {self.__tabuleiro["A3"].center(1)}    |    {self.__tabuleiro["B3"].center(1)}    |    '
+              f'{self.__tabuleiro["C3"].center(1)}')
 
     def joga(self, coluna_e_linha, x_ou_o):
-        self.__tabuleiro[coluna_e_linha] = x_ou_o
+        if self.__tabuleiro[coluna_e_linha] == '':
+            self.__tabuleiro[coluna_e_linha] = x_ou_o
+
+    def checar_vitoria(self):
+        pass
 
 
 class Jogador:
