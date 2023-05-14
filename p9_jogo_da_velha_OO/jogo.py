@@ -25,36 +25,52 @@ class JogoDaVelha:
         if self.__tabuleiro[coluna_e_linha] == '':
             self.__tabuleiro[coluna_e_linha] = x_ou_o
 
-    def checar_vitoria(self):
-        pass
+    def fim_de_jogo(self):
+
+        tem_x = tem_o = 0
+        valores_tabuleiro = list(self.__tabuleiro.values())
+
+        # horizontal 1
+        for i in range(0, len(valores_tabuleiro), 3):
+
+            if valores_tabuleiro[i] == 'X':
+                tem_x += 1
+
+                if tem_x == 3:
+                    return 'X', True
+
+            elif i == 'O':
+                tem_o += 1
+
+                if tem_o == 3:
+                    return 'O', True
+
+            return 'N/A', False
+
+
+    # testes
+    def abcdef(self):
+        return list(self.__tabuleiro.values())
 
 
 class Jogador:
     def __init__(self, nome, escolha):
-        self._nome = nome
-        self._escolha = escolha
+        self.__nome = nome
+        self.__escolha = escolha.upper()
 
     def __str__(self):
-        return f'Nome: {self._nome}. Escolha: {self._escolha}'
+        return f'Nome: {self.__nome}. Escolha: {self.__escolha}'
 
     @property
     def escolha(self):
-        return self._escolha
+        return self.__escolha
 
     @property
     def nome(self):
-        return self._nome
+        return self.__nome
 
 
-class Maquina:
-    def __init__(self, escolha):
-        self.nome = 'Máquina'
-        self._escolha = escolha
+t = JogoDaVelha()
 
-    @property
-    def escolha(self):
-        return self._escolha
-
-
-# tabuleiro = JogoDaVelha()
-# tabuleiro.representacao_tabuleiro()
+sla = t.abcdef()
+print(sla)
