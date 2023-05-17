@@ -26,31 +26,31 @@ class JogoDaVelha:
             self.__tabuleiro[coluna_e_linha] = x_ou_o
 
     def fim_de_jogo(self):
+        tabuleiro = self.__tabuleiro
+        chaves = list(self.__tabuleiro.keys())
+        indices_colunas = ('A', 'B', 'C')
+        indices_linhas = (1, 2, 3)
+        x_ou_o = ''
+        ocorrencia_de_x_ou_o = 1
 
-        tem_x = tem_o = 0
-        valores_tabuleiro = list(self.__tabuleiro.values())
-
-        # horizontal 1
-        for i in range(0, len(valores_tabuleiro), 3):
-
-            if valores_tabuleiro[i] == 'X':
-                tem_x += 1
-
-                if tem_x == 3:
-                    return 'X', True
-
-            elif i == 'O':
-                tem_o += 1
-
-                if tem_o == 3:
-                    return 'O', True
-
-            return 'N/A', False
+        for num in indices_linhas:
+            for elemento in range(num, len(chaves) + 1, 3):
+                pass
 
 
-    # testes
-    def abcdef(self):
-        return list(self.__tabuleiro.values())
+            # if posicao == 0:
+            #     x_ou_o = tabuleiro[elemento]
+            # else:
+            #
+            #     if tabuleiro[elemento] == x_ou_o and len(tabuleiro[elemento]) != 0:
+            #         ocorrencia_de_x_ou_o += 1
+            #
+            #     elif tabuleiro[elemento] != x_ou_o and len(tabuleiro[elemento]) != 0:
+            #         x_ou_o = tabuleiro[elemento]
+            #         ocorrencia_de_x_ou_o = 1
+            #
+            # if ocorrencia_de_x_ou_o == 3:
+            #     return True
 
 
 class Jogador:
@@ -72,5 +72,5 @@ class Jogador:
 
 t = JogoDaVelha()
 
-sla = t.abcdef()
-print(sla)
+# print(t.tabuleiro)
+# t.representacao_tabuleiro()

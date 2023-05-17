@@ -69,7 +69,7 @@ if not jogo_interrompido:
         tabuleiro.representacao_tabuleiro()
         linha()
 
-        if tabuleiro.fim_de_jogo()[1]:
+        if tabuleiro.fim_de_jogo():
             break
 
         while True:
