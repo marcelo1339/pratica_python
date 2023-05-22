@@ -27,30 +27,24 @@ class JogoDaVelha:
 
     def fim_de_jogo(self):
         tabuleiro = self.__tabuleiro
-        chaves = list(self.__tabuleiro.keys())
-        indices_colunas = ('A', 'B', 'C')
-        indices_linhas = (1, 2, 3)
-        x_ou_o = ''
-        ocorrencia_de_x_ou_o = 1
 
-        for num in indices_linhas:
-            for elemento in range(num, len(chaves) + 1, 3):
-                pass
+        colunas = ['A', 'B', 'C']
 
+        for coluna in colunas:
 
-            # if posicao == 0:
-            #     x_ou_o = tabuleiro[elemento]
-            # else:
-            #
-            #     if tabuleiro[elemento] == x_ou_o and len(tabuleiro[elemento]) != 0:
-            #         ocorrencia_de_x_ou_o += 1
-            #
-            #     elif tabuleiro[elemento] != x_ou_o and len(tabuleiro[elemento]) != 0:
-            #         x_ou_o = tabuleiro[elemento]
-            #         ocorrencia_de_x_ou_o = 1
-            #
-            # if ocorrencia_de_x_ou_o == 3:
-            #     return True
+            # busca vertical
+            indice_coluna = 1
+
+            if tabuleiro[f'{coluna}{indice_coluna}'] == tabuleiro[f'{coluna}{indice_coluna + 1}'] == \
+                    tabuleiro[f'{coluna}{indice_coluna + 2}'] != '':
+
+                return True, tabuleiro[f"{coluna}{indice_coluna}"]
+
+        # busca horizontal (A logica está errada)
+        indice_linha = 1
+        if tabuleiro[f'{colunas[0]}{indice_linha}'] == tabuleiro[f'{[colunas]}{indice_linha + 1}'] == \
+                tabuleiro[f'{colunas[2]}{indice_linha + 2}']:
+            return True, tabuleiro[f"{coluna}{indice_coluna}"]
 
 
 class Jogador:
