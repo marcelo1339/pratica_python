@@ -28,23 +28,31 @@ class JogoDaVelha:
     def fim_de_jogo(self):
         tabuleiro = self.__tabuleiro
 
+        # busca vertical
         colunas = ['A', 'B', 'C']
-
         for coluna in colunas:
 
-            # busca vertical
             indice_coluna = 1
 
             if tabuleiro[f'{coluna}{indice_coluna}'] == tabuleiro[f'{coluna}{indice_coluna + 1}'] == \
                     tabuleiro[f'{coluna}{indice_coluna + 2}'] != '':
 
-                return True, tabuleiro[f"{coluna}{indice_coluna}"]
+                return True, tabuleiro[f'{coluna}{indice_coluna}']
 
-        # busca horizontal (A logica está errada)
-        indice_linha = 1
-        if tabuleiro[f'{colunas[0]}{indice_linha}'] == tabuleiro[f'{[colunas]}{indice_linha + 1}'] == \
-                tabuleiro[f'{colunas[2]}{indice_linha + 2}']:
-            return True, tabuleiro[f"{coluna}{indice_coluna}"]
+        # busca horizontal
+        for indice_linha in range(1, 4):
+
+            if tabuleiro[f'A{indice_linha}'] == tabuleiro[f'B{indice_linha}'] == tabuleiro[f'C{indice_linha}'] != '':
+                return True, tabuleiro[f'A{indice_linha}']
+
+        # busca diagonal
+        if tabuleiro['A1'] == tabuleiro['B2'] == tabuleiro['C3'] != '':
+
+            return True, tabuleiro['A1']
+
+        elif tabuleiro['C1'] == tabuleiro['B2'] == tabuleiro['A3'] != '':
+
+            return True, tabuleiro['C1']
 
 
 class Jogador:
@@ -62,9 +70,3 @@ class Jogador:
     @property
     def nome(self):
         return self.__nome
-
-
-t = JogoDaVelha()
-
-# print(t.tabuleiro)
-# t.representacao_tabuleiro()
