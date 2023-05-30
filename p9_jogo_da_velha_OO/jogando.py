@@ -13,7 +13,7 @@ def encerramento():
     print('Programa encerrado!')
 
 
-player1 = player2 = oponente = nome = jogada = nome_jogador_da_vez = escolha_jogador_da_vez = x_ou_o = ''
+player1 = player2 = nome = jogada = nome_jogador_da_vez = escolha_jogador_da_vez = ''
 
 jogo_interrompido = False
 
@@ -62,6 +62,8 @@ if quem_comeca == 2:
     nome_jogador_da_vez = player2.nome
     escolha_jogador_da_vez = player2.escolha
 
+print('\nA jogada deve ser a união entre os índices de coluna e célula (A1, A2, ...)')
+
 if not jogo_interrompido:
     while True:
 
@@ -71,12 +73,14 @@ if not jogo_interrompido:
 
         if tabuleiro.fim_de_jogo():
 
-            escolha_vencedor = tabuleiro.fim_de_jogo()[1]
+            escolha_jogador_vencedor_ou_empate = tabuleiro.fim_de_jogo()[1]
 
-            if escolha_vencedor == 'X':
+            if escolha_jogador_vencedor_ou_empate == 'X':
                 print(f'Parabéns, {player1.nome}!! Você venceu.')
-            elif escolha_vencedor == 'O':
+            elif escolha_jogador_vencedor_ou_empate == 'O':
                 print(f'Parabéns, {player2.nome}!! Você venceu.')
+            elif escolha_jogador_vencedor_ou_empate == 'EMPATE':
+                print('Parece que houve um empate!!')
 
             break
 

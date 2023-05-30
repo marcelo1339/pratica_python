@@ -27,6 +27,7 @@ class JogoDaVelha:
 
     def fim_de_jogo(self):
         tabuleiro = self.__tabuleiro
+        vitoria = False
 
         # busca vertical
         colunas = ['A', 'B', 'C']
@@ -37,22 +38,36 @@ class JogoDaVelha:
             if tabuleiro[f'{coluna}{indice_coluna}'] == tabuleiro[f'{coluna}{indice_coluna + 1}'] == \
                     tabuleiro[f'{coluna}{indice_coluna + 2}'] != '':
 
-                return True, tabuleiro[f'{coluna}{indice_coluna}']
+                vitoria = True
+                return vitoria, tabuleiro[f'{coluna}{indice_coluna}']
 
         # busca horizontal
         for indice_linha in range(1, 4):
 
             if tabuleiro[f'A{indice_linha}'] == tabuleiro[f'B{indice_linha}'] == tabuleiro[f'C{indice_linha}'] != '':
-                return True, tabuleiro[f'A{indice_linha}']
+
+                vitoria = True
+                return vitoria, tabuleiro[f'A{indice_linha}']
 
         # busca diagonal
         if tabuleiro['A1'] == tabuleiro['B2'] == tabuleiro['C3'] != '':
 
-            return True, tabuleiro['A1']
+            vitoria = True
+            return vitoria, tabuleiro['A1']
 
         elif tabuleiro['C1'] == tabuleiro['B2'] == tabuleiro['A3'] != '':
 
-            return True, tabuleiro['C1']
+            vitoria = True
+            return vitoria, tabuleiro['C1']
+
+        # Empate
+        campos_ocupados = 0
+        for campo in tabuleiro.values():
+            if campo == 'X' or campo == 'O':
+                campos_ocupados += 1
+
+            if campos_ocupados == 9 and not vitoria:
+                return True, 'EMPATE'
 
 
 class Jogador:
